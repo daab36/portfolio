@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 <title>daniel arismendi</title>
 <meta name="description" content="Daniel Arismendi — data analyst / analista de datos. Bogotá, Colombia." />
+
+<!-- ============== ANALYTICS (GoatCounter) ==============
+     IMPORTANTE: para que esto funcione tienes que:
+     1. Crear cuenta GRATIS en https://www.goatcounter.com/signup
+        (elige un subdominio, por ejemplo "daniel-arismendi")
+     2. Reemplazar la palabra TU-SUBDOMINIO de abajo por el subdominio que elegiste
+     3. Volver a subir el index.html
+     Sin estos pasos el script no envía datos pero tampoco rompe nada. -->
+<script data-goatcounter="https://TU-SUBDOMINIO.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; }
@@ -76,6 +86,7 @@
   .icon.dragging { cursor: grabbing; }
   .icon .glyph {
     width: 44px; height: 36px;
+    background: rgba(255,255,255,0.18);
     border: 1px solid rgba(255,255,255,0.55);
     border-radius: 2px;
     position: relative;
@@ -85,12 +96,15 @@
     position: absolute;
     top: -4px; left: 4px;
     width: 16px; height: 6px;
+    background: rgba(255,255,255,0.28);
     border: 1px solid rgba(255,255,255,0.55);
     border-bottom: none;
-    background: #000;
     border-radius: 1px 1px 0 0;
   }
-  .icon .glyph.doc { width: 36px; height: 44px; }
+  .icon .glyph.doc {
+    width: 36px; height: 44px;
+    background: rgba(255,255,255,0.16);
+  }
   .icon .glyph.doc::before {
     content: '';
     position: absolute;
@@ -100,6 +114,10 @@
     border-bottom: 1px solid rgba(255,255,255,0.55);
     background: #000;
   }
+  /* slight hover lift */
+  .icon:hover .glyph { background: rgba(255,255,255,0.26); }
+  .icon:hover .glyph.folder::before { background: rgba(255,255,255,0.36); }
+  .icon:hover .glyph.doc { background: rgba(255,255,255,0.24); }
   .icon .label {
     font-size: 10px; letter-spacing: 0.18em;
     color: rgba(255,255,255,0.75);
@@ -153,17 +171,25 @@
     color: rgba(255,255,255,0.7);
     text-transform: lowercase;
   }
-  .window .titlebar .controls { display: flex; gap: 8px; }
+  .window .titlebar .controls { display: flex; gap: 8px; align-items: center; }
   .window .titlebar .ctrl {
-    width: 9px; height: 9px;
-    border: 0.5px solid rgba(255,255,255,0.5);
+    width: 14px; height: 14px;
+    border: 0.5px solid rgba(255,255,255,0.55);
     border-radius: 50%;
-    background: transparent;
+    background: rgba(255,255,255,0.4);
     cursor: pointer;
     padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(0,0,0,0.7);
+    font-family: ui-monospace, 'SF Mono', monospace;
+    font-size: 12px; line-height: 1;
   }
-  .window .titlebar .ctrl:hover { background: rgba(255,255,255,0.18); }
-  .window .titlebar .ctrl.close:hover { background: rgba(255,80,80,0.5); }
+  .window .titlebar .ctrl:hover { background: rgba(255,255,255,0.7); }
+  .window .titlebar .ctrl.close:hover {
+    background: rgba(230, 70, 70, 0.95);
+    color: #fff;
+    border-color: rgba(230,70,70,1);
+  }
 
   .window .body {
     padding: 22px 24px 24px;
@@ -295,7 +321,7 @@
 <div class="window" id="win-data" data-x="320" data-y="80" style="width: 440px;">
   <div class="titlebar">
     <span class="title" data-i18n="win.data.title">— data / projects</span>
-    <div class="controls"><button class="ctrl close" aria-label="close"></button></div>
+    <div class="controls"><button class="ctrl close" aria-label="close">&times;</button></div>
   </div>
   <div class="body">
     <div class="meta" data-i18n="win.data.meta">data analysis · python · gis</div>
@@ -329,7 +355,7 @@
 <div class="window" id="win-code" data-x="370" data-y="120" style="width: 460px;">
   <div class="titlebar">
     <span class="title" data-i18n="win.code.title">— code / projects</span>
-    <div class="controls"><button class="ctrl close" aria-label="close"></button></div>
+    <div class="controls"><button class="ctrl close" aria-label="close">&times;</button></div>
   </div>
   <div class="body">
     <div class="meta">javascript · react · sql · express</div>
@@ -423,7 +449,7 @@
 <div class="window" id="win-photo" data-x="280" data-y="200" style="width: 360px;">
   <div class="titlebar">
     <span class="title" data-i18n="win.photo.title">— photo / archive</span>
-    <div class="controls"><button class="ctrl close" aria-label="close"></button></div>
+    <div class="controls"><button class="ctrl close" aria-label="close">&times;</button></div>
   </div>
   <div class="body">
     <div class="meta">b&amp;w · 35mm · digital</div>
@@ -437,7 +463,7 @@
 <div class="window" id="win-cv" data-x="240" data-y="260" style="width: 400px;">
   <div class="titlebar">
     <span class="title" data-i18n="win.cv.title">— curriculum vitae</span>
-    <div class="controls"><button class="ctrl close" aria-label="close"></button></div>
+    <div class="controls"><button class="ctrl close" aria-label="close">&times;</button></div>
   </div>
   <div class="body">
     <div class="meta" data-i18n="win.cv.meta">daniel arismendi · data analyst · 2026</div>
@@ -454,7 +480,7 @@
 <div class="window" id="win-contact" data-x="200" data-y="320" style="width: 320px;">
   <div class="titlebar">
     <span class="title" data-i18n="win.contact.title">— contact.card</span>
-    <div class="controls"><button class="ctrl close" aria-label="close"></button></div>
+    <div class="controls"><button class="ctrl close" aria-label="close">&times;</button></div>
   </div>
   <div class="body">
     <p class="contact-list">
@@ -547,12 +573,64 @@
   try { initialLang = localStorage.getItem('lang') || (navigator.language && navigator.language.toLowerCase().indexOf('es') === 0 ? 'es' : 'en'); } catch (e) {}
   applyLang(initialLang);
 
+  // ---- analytics helper ----
+  function trackEvent(path, title) {
+    if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+      window.goatcounter.count({ path: path, title: title, event: true });
+    }
+  }
+
   document.querySelectorAll('.lang-toggle .opt').forEach(function (o) {
-    o.addEventListener('click', function () { applyLang(o.dataset.lang); });
+    function fire() {
+      applyLang(o.dataset.lang);
+      trackEvent('lang-toggle-' + o.dataset.lang, 'Language toggle: ' + o.dataset.lang);
+    }
+    o.addEventListener('click', fire);
     o.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); applyLang(o.dataset.lang); }
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); fire(); }
     });
   });
+
+  // Auto-tag links so GoatCounter records meaningful click events.
+  // The GoatCounter script (loaded from <head>) listens for any element with
+  // data-goatcounter-click and reports it as an event with that path.
+  (function tagAnalyticsLinks() {
+    function tag(selector, path, title) {
+      document.querySelectorAll(selector).forEach(function (a) {
+        a.setAttribute('data-goatcounter-click', path);
+        a.setAttribute('data-goatcounter-title', title);
+      });
+    }
+    // CV download
+    tag('a[href$="cv.pdf"]', 'cv-download', 'CV downloaded');
+    // Project github links — derive project slug from URL
+    document.querySelectorAll('a[href*="github.com/daab36/"]').forEach(function (a) {
+      var m = a.getAttribute('href').match(/github\.com\/daab36\/([^\/?#]+)/);
+      if (!m) return;
+      var slug = m[1].toLowerCase();
+      // The plain "github.com/daab36" profile link goes to contact-github below
+      if (slug && slug !== '') {
+        a.setAttribute('data-goatcounter-click', 'proj-github-' + slug);
+        a.setAttribute('data-goatcounter-title', 'Project github: ' + slug);
+      }
+    });
+    // Live demos
+    document.querySelectorAll('a[href*="daab36.github.io/"]').forEach(function (a) {
+      var m = a.getAttribute('href').match(/daab36\.github\.io\/([^\/?#]+)/);
+      if (!m) return;
+      var slug = m[1].toLowerCase();
+      a.setAttribute('data-goatcounter-click', 'proj-live-' + slug);
+      a.setAttribute('data-goatcounter-title', 'Project live: ' + slug);
+    });
+    // Contact: GitHub profile (override the project tagger above for the bare profile URL)
+    tag('a[href="https://github.com/daab36"]', 'contact-github', 'Contact: GitHub profile');
+    // Contact: LinkedIn / X / email / phones
+    tag('a[href*="linkedin.com"]', 'contact-linkedin', 'Contact: LinkedIn');
+    tag('a[href*="x.com/"]',       'contact-x',        'Contact: X');
+    tag('a[href^="mailto:"]',      'contact-email',    'Contact: email');
+    tag('a[href="tel:+573115589794"]', 'contact-phone-co', 'Contact: phone CO');
+    tag('a[href="tel:+18724632955"]',  'contact-phone-us', 'Contact: phone US');
+  })();
 
   // -------- random helpers --------
   function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
